@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   has_many :potential_buyers, source: :user, class_name: "User", through: :carts
 
 
-  validates :title, presence: true, length: { in: 4..40 }, uniqueness: true
+  validates :title, presence: true, length: { in: 4..60 }, uniqueness: true
   validates :description, presence: true, length: { in: 6..1000 }
   validates :price, presence: true, :numericality => { greater_than_or_equal_to: 0 }    
 
