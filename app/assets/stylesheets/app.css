@@ -1,0 +1,46 @@
+/************************************************
+*                                               *
+*                    Navbar                     *
+*                                               *
+************************************************/
+
+nav.navbar, .navbar .btn-primary
+{
+    font-size: 1.5rem;
+}
+
+a.navbar-brand
+{
+    font-size: 2rem;
+}
+
+#navbarColor03
+{
+    justify-content: flex-end;
+}
+
+ul.navbar-nav
+{
+    align-items: center;
+}
+
+.navbar li
+{
+    margin: 0 20px;
+}
+
+
+
+/************************************************
+*                                               *
+*                    Footer                     *
+*                                               *
+************************************************/
+
+footer
+{
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+}
