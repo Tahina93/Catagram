@@ -1,3 +1,8 @@
+main
+{
+    margin-bottom: 130px;
+}
+
 /************************************************
 *                                               *
 *                    Navbar                     *
@@ -29,6 +34,42 @@ ul.navbar-nav
     margin: 0 20px;
 }
 
+
+/************************************************
+*                                               *
+*                 Index Cards                   *
+*                                               *
+************************************************/
+
+.card.index .card-header
+{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.card.index .price
+{
+    color: var(--primary);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card.index img
+{
+    height: 200px;
+    width: 100%;
+    display: block;
+}
+
+.card.index .button
+{
+    text-align: center;
+}
+
+.card.index .button i
+{
+    margin-right: 5px;
+}
 
 
 /************************************************
