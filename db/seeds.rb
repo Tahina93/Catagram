@@ -8,13 +8,12 @@
 
 require 'faker'
 
-Item.all_destroy
-User.all_destroy
+User.destroy_all
 
 
 User.create!(
 	email: 'catagram@yopmail.com',
-	password: '69000'
+	password: 'azerty'
 	)
 
 puts "Remise à zéro de la table item"
