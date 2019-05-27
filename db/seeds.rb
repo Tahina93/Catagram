@@ -8,6 +8,15 @@
 
 require 'faker'
 
+Item.all_destroy
+User.all_destroy
+
+
+User.create!(
+	email: 'catagram@yopmail.com',
+	password: '69000'
+	)
+
 puts "Remise à zéro de la table item"
 Item.destroy_all
 puts "-------------------------------"
