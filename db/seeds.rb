@@ -27,7 +27,7 @@ puts "      - price : aléatoire compris entre 5.00 et 70.00"
 puts "      - images : link vers une image différente"
 
 
-my_item = Item.create(title: Faker::Creature::Cat.name  , description: Faker::Lorem.paragraph(5), price: rand(5..70), image_url: 
+my_item = Item.create(title: "#{Faker::Creature::Cat.name} #{Faker::Creature::Cat.breed}"   , description: Faker::Lorem.paragraph(5), price: rand(5..70), image_url: 
 "https://cdn.pixabay.com/photo/2015/03/27/13/16/cat-694730_1280.jpg")
 my_item = Item.create(title: Faker::Creature::Cat.name  , description: Faker::Lorem.paragraph(5), price: rand(5..70), image_url: 
 "https://cdn.pixabay.com/photo/2016/07/10/21/47/cat-1508613_1280.jpg")
