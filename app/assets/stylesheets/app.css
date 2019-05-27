@@ -1,6 +1,6 @@
 main
 {
-    margin-bottom: 130px;
+    margin-bottom: 75px;
 }
 
 /************************************************
@@ -8,6 +8,11 @@ main
 *                    Navbar                     *
 *                                               *
 ************************************************/
+
+nav.navbar
+{
+    height: 10vh;
+}
 
 nav.navbar, .navbar .btn-primary
 {
@@ -32,6 +37,20 @@ ul.navbar-nav
 .navbar li
 {
     margin: 0 20px;
+}
+
+
+/************************************************
+*                                               *
+*                    Banner                     *
+*                                               *
+************************************************/
+
+#welcome-banner
+{
+    height: 90vh;
+    width: 100vw;
+    background: purple
 }
 
 
@@ -77,11 +96,3 @@ ul.navbar-nav
 *                    Footer                     *
 *                                               *
 ************************************************/
-
-footer
-{
-    position: fixed;
-    width: 100vw;
-    bottom: 0;
-    left: 0;
-}
