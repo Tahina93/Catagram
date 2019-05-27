@@ -1,6 +1,6 @@
 main
 {
-    margin-bottom: 130px;
+    margin-bottom: 70px;
 }
 
 /************************************************
@@ -69,19 +69,4 @@ ul.navbar-nav
 .card.index .button i
 {
     margin-right: 5px;
-}
-
-
-/************************************************
-*                                               *
-*                    Footer                     *
-*                                               *
-************************************************/
-
-footer
-{
-    position: fixed;
-    width: 100vw;
-    bottom: 0;
-    left: 0;
 }
