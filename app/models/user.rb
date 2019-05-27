@@ -3,8 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-
-  belongs_to :cart
+  has_one :cart
   has_many :orders
 
   has_many :potential_items, foreign_key: "item_id", class_name: "Item", through: :cart
