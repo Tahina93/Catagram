@@ -159,3 +159,9 @@ ul.navbar-nav
 {
     margin-right: 5px;
 }
+
+.card-body.buttons > a
+{
+    width: 50%;
+    margin: 5px 0;
+}
