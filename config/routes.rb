@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :users
   devise_for :users
+  resources :users, only: [:show]
+
 end

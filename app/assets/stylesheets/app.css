@@ -9,6 +9,11 @@ main
 *                                               *
 ************************************************/
 
+nav.navbar
+{
+    height: 10vh;
+}
+
 nav.navbar, .navbar .btn-primary
 {
     font-size: 1.5rem;
@@ -35,6 +40,90 @@ ul.navbar-nav
 }
 
 
+/************************************************
+*                                               *
+*                    Banner                     *
+*                                               *
+************************************************/
+
+#welcome-banner
+{
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+}
+
+.panel {
+    background:#6B0F9C;
+    box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+    color:white;
+    text-align: center;
+    align-items:center;
+    transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+    font-size: 20px;
+    background-size:cover;
+    background-position:center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.panel1 { background-image:
+    url(https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_1280.jpg); }
+.panel2 { background-image:
+    url(https://cdn.pixabay.com/photo/2017/11/13/07/14/cat-eyes-2944820_1280.jpg); }
+.panel3 { background-image:
+    url(https://cdn.pixabay.com/photo/2017/02/15/12/12/cat-2068462_1280.jpg); }
+
+.panel > * {
+    margin:0;
+    width: 100%;
+    transition:transform 0.5s;
+    flex:1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel > *:first-child {transform: translateY(-100%);}
+.panel > *:last-child {transform: translateY(100%);}
+.panel > *:nth-of-type(2) .msg {display: none;}
+.panel.open-active > *:first-child, .panel.open-active > *:last-child {
+    transform: translateY(0);
+}
+
+
+
+.panel p {
+    text-transform: uppercase;
+    font-family: 'Amatic SC', cursive;
+    text-shadow:0 0 4px rgba(0, 0, 0, 0.72),
+        0 0 14px rgba(0, 0, 0, 0.45);
+    font-size: 2em;
+}
+.panel p:nth-child(2) {
+    font-size: 4em;
+}
+
+.panel.open {
+    font-size:40px;
+    flex: 5;
+}
+
+.panel.open p:nth-of-type(2) .front{
+    display:none;
+}
+
+.panel.open p:nth-of-type(2) .msg{
+    display:block;
+}
 /************************************************
 *                                               *
 *                 Index Cards                   *
