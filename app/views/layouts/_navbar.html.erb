@@ -14,7 +14,7 @@
       </li>
       <% if user_signed_in? %>
       <li class="nav-item">
-        <a class="nav-link" href="<%=cart_path(current_user.cart.id)%>"><i class="fas fa-cart-arrow-down"></i></a>
+        <a class="nav-link" href="<%=cart_path(current_user.cart.id)%>"><i class="fas fa-cart-arrow-down"></i> - <%= current_user.cart.items.length %></a>
       </li>
       <% end %>
       <li class="nav-item">

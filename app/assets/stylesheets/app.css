@@ -171,3 +171,8 @@ ul.navbar-nav
     width: 50%;
     margin: 5px 0;
 }
+
+#items
+{
+    padding-top: 12vh;
+}
