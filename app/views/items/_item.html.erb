@@ -8,7 +8,7 @@
         <div class="card-body button">
             <a href="<%= item_path(item.id) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
             <% if user_signed_in? %>
-            <a href="<%= root_path %>" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a>
+            <a href="<%= cart_path(current_user.cart.id, :item_id => item.id) %>" data-method="put" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a>
             <% else %>
             <a href="<%= new_user_session_path %>" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a>
             <% end %>
