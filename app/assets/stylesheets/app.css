@@ -74,7 +74,6 @@ ul.navbar-nav
     flex-direction: column;
 }
 
-
 .panel1 { background-image:
     url(https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_1280.jpg); }
 .panel2 { background-image:
@@ -99,8 +98,6 @@ ul.navbar-nav
     transform: translateY(0);
 }
 
-
-
 .panel p {
     text-transform: uppercase;
     font-family: 'Donegal One', serif;;
@@ -124,6 +121,8 @@ ul.navbar-nav
 .panel.open p:nth-of-type(2) .msg{
     display:block;
 }
+
+
 /************************************************
 *                                               *
 *                 Index Cards                   *
@@ -150,12 +149,12 @@ ul.navbar-nav
     display: block;
 }
 
-.card.index .button
+.card.index .buttons
 {
     text-align: center;
 }
 
-.card.index .button i
+.card.index .buttons i, p > a > i
 {
     margin-right: 5px;
 }
