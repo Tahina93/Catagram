@@ -1,17 +1,8 @@
-<div class="row">
-<% @items.each do |item|%>
-    <div class= "col-sm-6 col-md-4">
-        <div class="card index mb-3 mt-3">
-            <h3 class="card-header"><%= item.title %></h3>
-            <img src="<%= item.image_url %>" alt="<%= item.title %>">
-            <div class="card-body price">
-                Prix&nbsp;: <%= item.price %> €
-            </div>
-            <div class="card-body button">
-                <a href="<%= item_path(item.id) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
-                <a href="#" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a>
-            </div>
-        </div>
+<%= render "banner" %>
+<div class="container">
+    <div class="row">
+    <% @items.each do |item|%>
+    <%= render "item", item: item %>
+    <% end %>
     </div>
-<% end %>
 </div>

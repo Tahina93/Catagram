@@ -24,8 +24,8 @@
             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USER</button>
             
             <div class="dropdown-menu bg-primary" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-              <a class="dropdown-item" href="<%#=user_path(user.id)%>">Mon profil</a>
-              <a class="dropdown-item" href="<%#=destroy_user_session_path(user.id)%>">Déconnexion</a>
+              <a class="dropdown-item" href="<%= user_path(current_user.id) %>">Mon profil</a>
+              <a class="dropdown-item" href="<%=destroy_user_session_path %>" data-method= "delete">Déconnexion</a>
             </div>
           </div>
           <% else %>
