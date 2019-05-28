@@ -14,7 +14,8 @@
     <div class="col-md-3 d-flex flex-column align-items-center border-left border-primary">
       <h3>Price</h3>
       <p class="mt-4"><%=@item.price%> €</p>
-      <p><a href="#" class="btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a></p>
+      <p><a href="<%= cart_path(current_user.cart.id, :item_id => @item.id) %>" data-method="put" class="btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a></p>
+
     </div>
   </div>
 

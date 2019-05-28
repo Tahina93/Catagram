@@ -1,0 +1,18 @@
+<div id="photo<%= item.id %>" class= "col-sm-6 col-md-4">
+    <div class="card index mb-3 mt-3">
+        <h3 class="card-header"><%= item.title %></h3>
+        <img src="<%= item.image_url %>" alt="<%= item.title %>">
+        <div class="card-body price">
+            Prix&nbsp;: <%= item.price %> €
+        </div>
+        <div class="card-body buttons">
+            <a href="<%= item_path(item.id) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> Afficher la photo</a>
+            <% if user_signed_in? %>
+            <a href="<%= cart_path(current_user.cart.id, :item_id => item.id, :to_remove => true) %>" data-method="put" class="card-link btn btn-dark"><i class="fas fa-trash-alt"></i>Eradiquer du panier</a>
+            <% else %>
+            <a href="<%= new_user_session_path %>" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Eradiquer du panier</a>
+            <% end %>
+
+        </div>
+    </div>
+</div>
