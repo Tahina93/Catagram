@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :orders
   #resources :users
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+  	 resources :profil_pictures, only: [:create]
+  end
 
 end

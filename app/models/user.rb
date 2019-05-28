@@ -11,4 +11,7 @@ class User < ApplicationRecord
 
   has_many :item_cart_links, through: :cart, dependent: :destroy
   has_many :potential_items, source: :item, class_name: "Item", through: :item_cart_links
+
+ #Active Storage
+  has_one_attached :profil_picture
 end
