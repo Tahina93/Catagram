@@ -2,6 +2,7 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    @cart_price = get_cart_price
   end
 
   def new
@@ -11,20 +12,24 @@ class CartsController < ApplicationController
   end
 
   def update
-    puts "******************************************************"
-    puts "******************************************************"
-    puts "******************************************************"
-    puts "Hello"
-    current_user.cart.items.append(Item.find(params["item_id"]))
-    puts "L'id de l'item  #{params["item_id"]}"
-    current_user.potential_items.each do |item|
-      puts "Item mis dans le cart : #{item.title}"
+    if params["to_remove"] == "true"
+      current_user.cart.items.delete(Item.find(params["item_id"]))
+      redirect_back(fallback_location: cart_path)
+    else
+      current_user.cart.items.append(Item.find(params["item_id"]))
+      redirect_back(fallback_location: root_path)
     end
-    puts "******************************************************"
-    puts "******************************************************"
   end
 
   def destroy
   end
 
+  private
+  def get_cart_price
+    total_price =0
+    current_user.potential_items.each do |item|
+      total_price += item.price
+    end
+    total_price
+  end
 end
