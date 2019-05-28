@@ -17,7 +17,7 @@ class CartsController < ApplicationController
       redirect_back(fallback_location: cart_path)
     else
       current_user.cart.items.append(Item.find(params["item_id"]))
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path + "#photo" + params["item_id"])
     end
   end
 

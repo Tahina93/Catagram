@@ -1,9 +1,9 @@
-<div id="items" class="container">
+<div class="container">
   <h1 class="text-center mt-5 mb-5">Bienvenue sur votre panier</h1>
   <div class="row">
     <% current_user.potential_items.each do |item|%>
     <%= render "item", item: item %>
     <% end %>
   </div>
-  <h3 class="text-center"> Total = <%=@cart_price%> €</p>
+  <h3 class="text-center"> Total = <%= @cart_price %> €</p>
 </div>
