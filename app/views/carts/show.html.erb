@@ -7,5 +7,5 @@
     <% end %>
   </div>
   <h3 class="text-center mt-5"> Total = <%=@cart_price%> € <br/>
-    <a href="#" class="card-link btn btn-danger mt-4"> Passer la commande </a></h3>
+    <a href="<%=orders_path%>" data-method="post" class="card-link btn btn-danger mt-4"> Passer la commande </a></h3>
 </div>
