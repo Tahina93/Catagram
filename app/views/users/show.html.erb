@@ -4,7 +4,14 @@
 	<div class="row d-flex justify-content-center align-items-center mt-4 mb-4">
 
 		<div class="col-md-4">
-			<img style="width: 100%;" src="https://cdn.pixabay.com/photo/2015/03/27/13/16/cat-694730_1280.jpg">
+			<%if @user.profil_picture.attached?%>
+			<%= image_tag @user.profil_picture, alt: 'profil_picture', style:"width: 100%;" %>
+			<%else%>
+			<%= form_tag user_profil_pictures_path(@user), multipart: true do %>
+			<%= file_field_tag :profil_picture %>
+			<%= submit_tag "mettre à jour" %>
+			<% end %>
+			<%end%>
 		</div>
 
 		<div class="col-md-6 d-flex flex-column align-content-around">
@@ -20,7 +27,7 @@
 				</div>
 
 			</div>
-<br/>
+			<br/>
 			<div class="row d-flex justify-content-center">
 				<h3><%=@user.email%></h3>
 			</div>
