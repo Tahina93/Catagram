@@ -33,7 +33,7 @@
 			</div>
 			<br/>
 			<div class="row d-flex justify-content-center text-center">
-				<a href="<%=edit_user_registration_path(@user.id)%>" class="form-control btn-primary" style="width: 50%;">Modifier mon profil</a>
+				<a href="<%=edit_user_registration_path%>" class="form-control btn-primary" style="width: 50%;">Modifier mon profil</a>
 			</div>
 
 
@@ -59,7 +59,7 @@
 						</div>
 						<div class="card-body buttons">
 							<a href="<%= item_path(item.title) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
-							<a href="#" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Acheter à nouveau</a>
+							<a href="<%= cart_path(item.title) %>" data-method="put" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Acheter à nouveau</a>
 						</div>
 					</div>
 				</div>

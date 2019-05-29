@@ -12,12 +12,14 @@ class CartsController < ApplicationController
   end
 
   def update
+    item = get_item(params[:id])
+
     if params["to_remove"] == "true"
-      current_user.cart.items.delete(Item.find(params["item_id"]))
+      current_user.cart.items.delete(item)
       redirect_back(fallback_location: cart_path)
     else
-      current_user.cart.items.append(Item.find(params["item_id"]))
-      redirect_back(fallback_location: root_path + "#photo" + params["item_id"])
+      current_user.cart.items.append(item)
+      redirect_back(fallback_location: root_path + "#photo" + item.id.to_s)
     end
   end
 
@@ -31,5 +33,9 @@ class CartsController < ApplicationController
       total_price += item.price
     end
     total_price
+  end
+
+  def get_item(title)
+    Item.find_by(title: title)
   end
 end
