@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class Admin::UsersController < ApplicationController
 	before_action :check_if_admin?
 
 	def index
@@ -23,10 +23,10 @@ class AdminsController < ApplicationController
 
 		if @user.destroy
 			flash[:success] = "L'utilisateur a bien été supprimé"
-			redirect_back(fallback_location: admins_path)
+			redirect_back(fallback_location: admin_users_path)
 		else 
 			flash[:danger] = "Suite à un problème, l'utilisateur n'a pas pu être supprimé"
-			redirect_back(fallback_location: admins_path)
+			redirect_back(fallback_location: admin_users_path)
 		end
 	end
 

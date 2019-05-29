@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   resources :charges
 
 
- get '/admins', to: 'admins#index'
- namespace :admins do
+ namespace :admin do
  	resources :users
  end
+
+ get '/admins/users/:id', to: 'admins/users#destroy', as: 'admins_user_destroy'
 
 
   devise_for :users, :controllers => {:registrations => "registrations"}

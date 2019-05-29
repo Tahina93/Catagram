@@ -19,6 +19,8 @@
 			    <th><%= user.email %></th>
 			    <th><%= user.is_admin %></th>
 			    <th><%= user.created_at %></th>
+			    <th class="option_delete"> <%= button_to "Supprimer", admin_user_path(:id => user.id), :method => :delete, class:"btn btn-primary" %></th>
+
 			  </tr>
 		<% end %>
 </table>
