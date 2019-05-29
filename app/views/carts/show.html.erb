@@ -1,10 +1,30 @@
 <div class="container">
-  <h1 class="text-center mt-5 mb-5">Bienvenue sur votre panier</h1>
-  <div class="row">
-    <% current_user.potential_items.each do |item|%>
-    <%= render "item", item: item %>
-    <% end %>
-  </div>
-  <h3 class="text-center mt-5"> Total = <%=@cart_price%> € <br/>
-    <a href="<%=orders_path%>" data-method="post" class="card-link btn btn-danger mt-4"> Passer la commande </a></h3>
+	<h1 class="text-center mt-5 mb-5">Bienvenue sur votre panier</h1>
+	<div class="row">
+		<% current_user.potential_items.each do |item|%>
+		<%= render "item", item: item %>
+		<% end %>
+	</div>
+	<div class="d-flex justify-content-center">
+		<%= form_tag orders_path, class:"p-4 border border-primary d-flex flex-column" do %>
+		<article class="text-center">
+			<% if flash[:error].present? %>
+			<div id="error_explanation">
+				<p><%= flash[:error] %></p>
+			</div>
+			<% end %>
+			<label class="amount">
+				<span style="font-size: 25px;">Total : <%=@cart_price.to_f%> €</span>
+			</label>
+		</article>
+
+		<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		data-description="A month's subscription"
+		data-amount="<%=@cart_price * 100%>"
+		data-locale="auto"
+		data-currency="eur">
+		</script>
+		<% end %>
+	</div>
 </div>
