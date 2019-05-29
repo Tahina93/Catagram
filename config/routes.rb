@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show], path: 'client' do
       resources :profil_pictures, only: [:create], path: 'avatar'
     end
+  resources :charges
 
    
   end

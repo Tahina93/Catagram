@@ -27,13 +27,6 @@ class CartsController < ApplicationController
   end
 
   private
-  def get_cart_price
-    total_price =0
-    current_user.potential_items.each do |item|
-      total_price += item.price
-    end
-    total_price
-  end
 
   def get_item(title)
     Item.find_by(title: title)
