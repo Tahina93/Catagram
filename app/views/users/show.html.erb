@@ -5,12 +5,12 @@
 
 		<div class="col-md-4">
 			<%if @user.profil_picture.attached?%>
-			<%= image_tag @user.profil_picture, alt: 'profil_picture', style:"width: 100%;" %>
+				<%= image_tag @user.profil_picture, alt: 'profil_picture', style:"width: 100%;" %>
 			<%else%>
-			<%= form_tag user_profil_pictures_path(@user), multipart: true do %>
-			<%= file_field_tag :profil_picture %>
-			<%= submit_tag "mettre à jour" %>
-			<% end %>
+				<%= form_tag user_profil_pictures_path(@user), multipart: true do %>
+					<%= file_field_tag :profil_picture, class: "btn btn-outline-secondary" %>
+					<%= submit_tag "Mettre à jour", class: "btn btn-outline-info" %>
+				<% end %>
 			<%end%>
 		</div>
 
