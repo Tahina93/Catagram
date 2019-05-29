@@ -6,4 +6,15 @@
 		
 	</div>
 	
+
+	<div class="d-flex flex-column">
+		<% @all_users.each do |user| %>
+			<div class="d-flex justify-content-around">
+				<p><%= user.id %></p>
+				<p><%= user.email %></p>
+				<p><%= user.is_admin %></p>
+			</div>
+		<% end %>
+	</div>
+
 </div>
