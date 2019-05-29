@@ -93,4 +93,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #config mailer
+  config.action_mailer.delivery_method = :mailjet
+  config.action_mailer.perform_deliveries = true
+
 end

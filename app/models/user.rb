@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :welcome_send
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,5 +14,14 @@ class User < ApplicationRecord
   has_many :potential_items, source: :item, class_name: "Item", through: :item_cart_links
 
  #Active Storage
-  has_one_attached :profil_picture
+ has_one_attached :profil_picture
+
+ private
+
+ def welcome_send
+   puts "-"*100
+   UserMailer.welcome_email(self).deliver_now
+   puts "-"*100
+ end
+
 end
