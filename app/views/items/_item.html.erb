@@ -6,7 +6,7 @@
             Prix&nbsp;: <%= item.price %> €
         </div>
         <div class="card-body buttons">
-            <a href="<%= item_path(item.id) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
+            <a href="<%= item_path(item.title) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
             <% if user_signed_in? %>
                 <% if current_user.cart.items.include?(item)%>
                     <a class="card-link btn btn-success" disabled><i class="fas fa-cart-plus"></i> Déjà dans le panier !</a>

@@ -1,6 +1,6 @@
 main
 {
-    margin-top: 12vh;
+    margin-top: 90px;
     margin-bottom: 70px;
     min-height: 67vh;
 }
@@ -13,7 +13,7 @@ main
 
 nav.navbar
 {
-    height: 10vh;
+    height: 77px;
     position: fixed;
     top: 0;
     left: 0;
@@ -172,7 +172,7 @@ ul.navbar-nav
     margin: 5px 0;
 }
 
-#items
+#catalogue
 {
-    padding-top: 12vh;
+    padding-top: 90px;
 }
