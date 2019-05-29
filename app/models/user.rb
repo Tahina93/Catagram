@@ -19,9 +19,7 @@ class User < ApplicationRecord
  private
 
  def welcome_send
-   puts "-"*100
    UserMailer.welcome_email(self).deliver_now
-   puts "-"*100
  end
 
 end
