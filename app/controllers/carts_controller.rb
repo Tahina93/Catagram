@@ -24,12 +24,4 @@ class CartsController < ApplicationController
   def destroy
   end
 
-  private
-  def get_cart_price
-    total_price =0
-    current_user.potential_items.each do |item|
-      total_price += item.price
-    end
-    total_price
-  end
 end
