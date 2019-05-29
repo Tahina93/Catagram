@@ -6,15 +6,21 @@
 		
 	</div>
 	
-
-	<div class="d-flex flex-column">
+<table id="users">
+			  <tr>
+			    <th>Id</th>
+			    <th>Email</th>
+			    <th>Is_admin</th>
+			    <th>Created at</th>
+			  </tr>
 		<% @all_users.each do |user| %>
-			<div class="d-flex justify-content-around">
-				<p><%= user.id %></p>
-				<p><%= user.email %></p>
-				<p><%= user.is_admin %></p>
-			</div>
+			  <tr>
+			    <th><%= user.id %></th>
+			    <th><%= user.email %></th>
+			    <th><%= user.is_admin %></th>
+			    <th><%= user.created_at %></th>
+			  </tr>
 		<% end %>
-	</div>
+</table>
 
 </div>
