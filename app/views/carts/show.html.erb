@@ -5,26 +5,34 @@
 		<%= render "item", item: item %>
 		<% end %>
 	</div>
-	<div class="d-flex justify-content-center">
-		<%= form_tag orders_path, class:"p-4 border border-primary d-flex flex-column" do %>
-		<article class="text-center">
-			<% if flash[:error].present? %>
-			<div id="error_explanation">
-				<p><%= flash[:error] %></p>
-			</div>
-			<% end %>
-			<label class="amount">
-				<span style="font-size: 25px;">Total : <%=@cart_price.to_f%> €</span>
-			</label>
-		</article>
 
-		<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-		data-description="A month's subscription"
-		data-amount="<%=@cart_price * 100%>"
-		data-locale="auto"
-		data-currency="eur">
-		</script>
-		<% end %>
+	<% if current_user.potential_items.length > 0 %>
+		<div class="d-flex justify-content-center">
+			<%= form_tag orders_path, class:"p-4 border border-primary d-flex flex-column" do %>
+			<article class="text-center">
+				<% if flash[:error].present? %>
+					<div id="error_explanation">
+						<p><%= flash[:error] %></p>
+					</div>
+				<% end %>
+				<label class="amount">
+					<span style="font-size: 25px;">Total : <%=@cart_price.to_f%> €</span>
+				</label>
+			</article>
+
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+			data-description="A month's subscription"
+			data-amount="<%=@cart_price * 100%>"
+			data-locale="auto"
+			data-currency="eur">
+			</script>
+			<%end%>
+		</div>
+
+	<% else %>
+	<div class="d-flex justify-content-center text-center">
+		<p style="font-size: 30px; margin-top: 10%;">Votre panier est vide</p>
 	</div>
+	<% end %>
 </div>
