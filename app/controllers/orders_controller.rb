@@ -21,20 +21,12 @@ class OrdersController < ApplicationController
   	currency: 'eur',
   })
 
-<<<<<<< HEAD
-	order = Order.create(user: current_user),
-	current_user.potential_items.each{|item|
-		order.items.append(item)
-		current_user.cart.items.delete(item)
-	}
-=======
   order = Order.create(user: current_user)
   order.amount = @amount
   current_user.potential_items.each{|item|
     order.items.append(item)
     current_user.cart.items.delete(item)
   }
->>>>>>> master
 
   redirect_to user_path(current_user.id)
   flash[:success] = "Merci, votre commande a bien été enregistrée"
