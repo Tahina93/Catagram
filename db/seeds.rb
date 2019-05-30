@@ -11,32 +11,18 @@ require 'faker'
 User.destroy_all
 Cart.destroy_all
 
-#test = 0 
+u= User.create!(
+	email: 'catagram@yopmail.com',
+	password: 'azerty',
+  is_admin: true
+	)
+	cart = Cart.create(user_id: u.id)
 
-#if User.where(email: 'catagram@yopmail.com').exists?
-#		if Cart.where(user_id: User.id).exists?
-#			puts "l'utisateur catagram@yopmail.com en mode admin était bien paramétré - pas de modif"
-
-#		else
-#			puts "l'utisateur catagram@yopmail.com en mode admin éxistait bien, on a créé son panier"			
-#			cart = Cart.create(user_id: User.id)		
-#		end
-#else
 	puts "Création de l'utisateur catagram@yopmail.com en mode admin avec création de son panier"
-
-	User.create!(
-		email: 'catagram@yopmail.com',
-		password: 'azerty',
-	    is_admin: true
-		)
-	cart = Cart.create(user_id: User.id)
-#end
-
 
 
 puts "Remise à zéro de la table item"
 Item.destroy_all
-
 Category.destroy_all
 
 puts "-------------------------------"
