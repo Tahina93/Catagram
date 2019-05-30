@@ -3,7 +3,14 @@
         <h3 class="card-header"><%= item.title %></h3>
         <img src="<%= item.image_url %>" alt="<%= item.title %>">
         <div class="card-body price">
-            Prix&nbsp;: <%= item.price %> €
+            Prix&nbsp;:
+            <%= number_to_currency(
+                item.price,
+                unit: "€",
+                separator: ",",
+                delimiter: " ",
+                format: "%n %u"
+            ) %>
         </div>
         <div class="card-body buttons">
             <a href="<%= item_path(item.title) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> Afficher la photo</a>

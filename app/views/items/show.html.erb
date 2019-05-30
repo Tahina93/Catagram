@@ -13,7 +13,15 @@
     </div>
     <div class="col-md-3 d-flex flex-column align-items-center border-left border-primary">
       <h3>Price</h3>
-      <p class="mt-4"><%=@item.price%> €</p>
+      <p class="mt-4">
+        <%= number_to_currency(
+            @item.price,
+            unit: "€",
+            separator: ",",
+            delimiter: " ",
+            format: "%n %u"
+        ) %>
+      </p>
 
       <% if user_signed_in? %>
         <% if current_user.cart.items.include?(@item)%>
