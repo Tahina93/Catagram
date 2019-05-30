@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
   resources :charges
   get '/mentions-legales', :to => 'static#mentions'
+  get '/a-propos', :to => 'static#about'
 
   end
 
