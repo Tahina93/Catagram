@@ -16,7 +16,16 @@
 					</div>
 				<% end %>
 				<label class="amount">
-					<span style="font-size: 25px;">Total : <%=@cart_price.to_f%> €</span>
+					<span style="font-size: 25px;">
+						Total :
+						<%= number_to_currency(
+							@cart_price,
+							unit: "€",
+							separator: ",",
+							delimiter: " ",
+							format: "%n %u"
+						) %>
+					</span>
 				</label>
 			</article>
 
@@ -25,7 +34,7 @@
 				data-label="Payer"
 				data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 				data-description="Commandes"
-				data-amount="<%=@cart_price * 100%>"
+				data-amount="<%=@cart_price*100%>"
 				data-locale="auto"
 				data-currency="eur">
 			</script>
