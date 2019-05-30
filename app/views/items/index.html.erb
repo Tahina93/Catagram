@@ -1,15 +1,16 @@
 <%= render "banner" %>
 <div id="catalogue" class="container">
 
-
-	<select id="category_id_choose" name="category_id_choose"  remote: true>
+<div class="dropdown">
+	<select id="category_id_choose" name="category_id_choose" class="btn btn-secondary dropdown-toggle" remote: true>
 		<option value="0">Toutes les catégories</option>
 		  <% @categories.each do |category| %>
-  			<option value="<%= category.id%>"><%= category.title%></option>
+      <!--<a href="<%=items_path(:category => category.id)%>" data-method="put">
+  			<option value="<%= category.id%>"><%= category.title%></option></a>-->
+        <option class="dropdown-item" value="card_cat<%= category.id%>"><%= category.title%></option>
   		  <% end %>
 	</select>
-
-
+</div>
     <div id="item_list" class="row">
     <% @items.each do |item|%>
     <%= render "item", item: item %>
@@ -29,16 +30,17 @@
 //  2. definir la fonction qui va répondre à l’événement ci-dessus.
 
 
-			
   var onchange = function(row) {
-        var categ = category_id_choose.value
+    var categ = category_id_choose.value
 		console.log(categ)
-
-var section = document.getElementById("item_list")
-section.innerHTML = ""
-
-section.insertAdjacentHTML("afterBegin", "<%= j render "itemcat", item: @item  ,:category => { :variable => '29' }%>")
+    document.querySelectorAll(".col-sm-6.col-md-4").forEach((card) => card.style.display = "none");
+    if(categ==0){
+      document.querySelectorAll(".col-sm-6.col-md-4").forEach((card) => card.style.display = "initial");
+    }else {
+      document.getElementsByName(categ).forEach((card) => card.style.display = "initial")
+    }
   };
+
 
 // 3. add the event listener for the elements and function
 // 3. on ajoute à l’eventlistener l’événement voulu et la fonction demandée.
