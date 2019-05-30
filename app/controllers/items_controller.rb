@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     @categories = Category.all.sort_by{|e| e[:title]}
 
-  end
+end
 
   def show
     @item = Item.find_by(title: params[:id])

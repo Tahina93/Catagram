@@ -1,0 +1,56 @@
+<div class="container">
+
+	<div class=" row d-flex justify-content-center mb-3">
+		<a href="<%= admin_users_path %>" class="btn btn-primary m-3">Espace Users</a>
+		<a href="<%= admin_orders_path %>" class="btn btn-primary m-3">Espace Orders</a>
+		<a href="<%= admin_items_path %>" class="btn btn-primary m-3">Espace Items</a>
+	</div>
+
+	<div class="row d-flex justify-content-center mt-5 mb-5">
+		<a href="<%= new_admin_item_path %>" class="btn btn-lg btn-primary p-3"> Créer un nouvel item</a>
+	</div>
+
+	<div class="row mb-5 d-flex justify-content-center">
+		<table id="statistiques">
+			<tr>
+				<th>Nombre total d'items</th>
+				<th>Prix moyen d'un item</th>
+			</tr>
+			<tr>
+				<th><%= @all_items.length%></th>
+				<th><%= @average_price.round(2) %> €</th>
+			</tr>
+		</table>
+
+	</div>
+
+	<div class="row">
+
+		<p>Bienvenue dans votre espace admin pour les items (utilisateur n°<%= @admin.id%>)</p>
+		
+	</div>
+	
+	<table id="items">    
+		<tr>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Image_url</th>
+			<th>Created at</th>
+		</tr>
+		<% @all_items.each do |item| %>
+		<tr>
+			<th><%= item.id %></th>
+			<th><%= item.title %></th>
+			<th><%= item.description %></th>
+			<th><%= item.price %></th>
+			<th><%= item.image_url %></th>
+			<th><%= item.created_at %></th>
+			<th class="option_delete"> <%= button_to "Supprimer", admin_item_path(:id => item.id), :method => :delete, class:"btn btn-primary" %></th>
+			<th class="option_delete"> <%= button_to "Editer", edit_admin_item_path(:id => item.id), :method => :get, class:"btn btn-primary" %></th>
+		</tr>
+		<% end %>
+	</table>
+
+</div>
