@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 	def create
 
   # Amount in cents
-	@amount = get_price
+  @amount = get_price
 
   customer = Stripe::Customer.create({
   	email: params[:stripeEmail],
@@ -21,17 +21,17 @@ class OrdersController < ApplicationController
   	currency: 'eur',
   })
 
-	order = Order.create(user: current_user),
-	order.amount = @amount
-	current_user.potential_items.each{|item|
-		order.items.append(item)
-		current_user.cart.items.delete(item)
-	}
+  order = Order.create(user: current_user)
+  order.amount = @amount
+  current_user.potential_items.each{|item|
+    order.items.append(item)
+    current_user.cart.items.delete(item)
+  }
 
-	redirect_to user_path(current_user.id)
-	flash[:success] = "Merci, votre commande a bien été enregistrée"
+  redirect_to user_path(current_user.id)
+  flash[:success] = "Merci, votre commande a bien été enregistrée"
 
-	rescue Stripe::CardError => e
+rescue Stripe::CardError => e
 	flash[:error] = e.message
 	redirect_to new_charge_path
 end
