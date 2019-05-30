@@ -1,0 +1,19 @@
+    <div id="item_list" class="row">
+
+alert(<%= category %>)
+    <% @items.each do |item|%>
+
+        <% if item.category_id == category %>
+            <%= render "item", item: item %>
+        <% end %>
+    <% end %>
+
+
+    <% @categories.each do |category|%>
+        <% category.items.each do |item| %>
+
+        <%= item.title %>
+        <% end %>
+        
+    <% end %>
+    </div>

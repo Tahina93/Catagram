@@ -8,6 +8,8 @@ class Item < ApplicationRecord
   has_many :buyers, source: :user, class_name: "User", through: :orders
   has_many :potential_buyers, source: :user, class_name: "User", through: :carts
 
+  belongs_to :category
+
 
   validates :title, presence: true, length: { in: 4..60 }, uniqueness: true
   validates :description, presence: true, length: { in: 6..1000 }

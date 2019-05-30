@@ -8,12 +8,14 @@
   <div class="row d-flex justify-content-center">
     <div class="col-md-6 d-flex flex-column align-items-center">
       <h2><%= @item.title%></h2>
+                  Catégorie&nbsp;: <%= @item.category.title %>
+
       <p class="mt-2"><%=@item.description%></p>
       <p><a href="<%= root_path %>#photo<%= @item.id %>" class="btn btn-primary"><i class="fas fa-cat"></i>Retour au catalogue</a></p>
     </div>
     <div class="col-md-3 d-flex flex-column align-items-center border-left border-primary">
       <h3>Price</h3>
-      <p class="mt-4"><%=@item.price%> €</p>
+      <p class="mt-4"><%= number_to_currency(@item.price, :unit => "€") %></p>
 
       <% if user_signed_in? %>
         <% if current_user.cart.items.include?(@item)%>

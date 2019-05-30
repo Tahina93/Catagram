@@ -1,8 +1,47 @@
 <%= render "banner" %>
 <div id="catalogue" class="container">
-    <div class="row">
+
+
+	<select id="category_id_choose" name="category_id_choose"  remote: true>
+		<option value="0">Toutes les catégories</option>
+		  <% @categories.each do |category| %>
+  			<option value="<%= category.id%>"><%= category.title%></option>
+  		  <% end %>
+	</select>
+
+
+    <div id="item_list" class="row">
     <% @items.each do |item|%>
     <%= render "item", item: item %>
     <% end %>
     </div>
+
 </div>
+
+
+<script type="text/javascript">
+
+
+// 1. Find and sotre the element we want to listen to events on.
+// 1. trouvé et enregistré l’élément sur lequel on veut qu’il l’on verifie si il y a un événement dessus
+  var category_id_choose = document.getElementById('category_id_choose');
+// 2. define the function that will respond to the event
+//  2. definir la fonction qui va répondre à l’événement ci-dessus.
+
+
+			
+  var onchange = function(row) {
+        var categ = category_id_choose.value
+		console.log(categ)
+
+var section = document.getElementById("item_list")
+section.innerHTML = ""
+
+section.insertAdjacentHTML("afterBegin", "<%= j render "itemcat", item: @item  ,:category => { :variable => '29' }%>")
+  };
+
+// 3. add the event listener for the elements and function
+// 3. on ajoute à l’eventlistener l’événement voulu et la fonction demandée.
+
+category_id_choose.addEventListener('change', onchange);
+</script>
