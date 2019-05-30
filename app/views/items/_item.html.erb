@@ -2,8 +2,18 @@
     <div class="card index mb-3 mt-3">
         <h3 class="card-header"><%= item.title %></h3>
         <img src="<%= item.image_url %>" alt="<%= item.title %>">
-        <div class="card-body price">
-            Prix&nbsp;: <%= item.price %> €
+
+    <div class="row d-flex justify-content-center"> Catégorie&nbsp;: <%= item.category.title %> </div>
+
+        <div class="card-body price row d-flex justify-content-center">
+            Prix&nbsp;:
+            <%= number_to_currency(
+                item.price,
+                unit: "€",
+                separator: ",",
+                delimiter: " ",
+                format: "%n %u"
+            ) %>
         </div>
         <div class="card-body buttons">
             <a href="<%= item_path(item.title) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>

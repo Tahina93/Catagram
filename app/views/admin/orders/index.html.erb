@@ -1,0 +1,32 @@
+<div class="container">
+
+	<div class=" row d-flex justify-content-center mb-3">
+		<a href="<%= admin_users_path %>" class="btn btn-primary m-3"> Espace Admin - users</a>
+		<a href="<%= admin_orders_path %>" class="btn btn-primary m-3"> Espace Admin - orders</a>
+	</div>
+
+	<div class="row">
+
+		<p>Bienvenue dans votre espace admin pour les commandes (utilisateur n°<%= @admin.id%>)</p>
+		
+	</div>
+	
+	<table id="orders">
+		<tr>
+			<th>Id</th>
+			<th>User id</th>
+			<th>User email</th>
+			<th>Created at</th>
+		</tr>
+		<% @all_orders.each do |order| %>
+		<tr>
+			<th><%= order.id %></th>
+			<th><%= order.user.id %></th>
+			<th><%= order.user.email %></th>
+			<th><%= order.created_at %></th>
+			<th class="option_delete"> <%= button_to "Supprimer", admin_order_path(:id => order.id), :method => :delete, class:"btn btn-primary" %></th>
+		</tr>
+		<% end %>
+	</table>
+
+</div>

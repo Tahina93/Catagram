@@ -14,20 +14,7 @@
 			<%end%>
 		</div>
 
-		<div class="col-md-6 d-flex flex-column align-content-around">
-			
-			<div class="row d-flex justify-content-around">
-				
-				<div class="col-md-6 text-center">
-					<h3>Prénom</h3>
-				</div>
-
-				<div class="col-md-6 text-center">
-					<h3>Nom</h3>
-				</div>
-
-			</div>
-			<br/>
+		<div class="col-md-6 offset-md-1 d-flex flex-column align-content-around">
 			<div class="row d-flex justify-content-center">
 				<h3><%=@user.email%></h3>
 			</div>
@@ -43,33 +30,14 @@
 
 
 
-	<div class="row mt-4 d-flex justify-content-center">
+	<div id="orders" class="text-center">
 		<h2>Mes commandes précédentes</h2>
-
-		<div class="col-md-10">
-
-			<div class="row">
-				<% @user.purchased_items.each do |item|%>
-				<div class= "col-sm-6 col-md-4">
-					<div class="card index mb-3 mt-3">
-						<h3 class="card-header"><%= item.title %></h3>
-						<img src="<%= item.image_url %>" alt="<%= item.title %>">
-						<div class="card-body price">
-							Prix&nbsp;: <%= item.price %> €
-						</div>
-						<div class="card-body buttons">
-							<a href="<%= item_path(item.title) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
-							<a href="<%= cart_path(item.title) %>" data-method="put" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Acheter à nouveau</a>
-						</div>
-					</div>
-				</div>
-				<% end %>
-			</div>
-
+		<div class="row">
+			<% unless @user.orders.empty? %>
+				<%= render 'orders', orders: @user.orders%>
+			<% else %>
+				<p>Vous n'avez encore passé aucune commande.</p>
+			<% end %>
 		</div>
-
-
 	</div>
-
-
 </div>

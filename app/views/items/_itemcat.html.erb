@@ -1,0 +1,12 @@
+    <div id="item_list" class="row">
+
+    <% test = Category.all.sample.id %>    
+
+    <% @items.each do |item|%>
+
+        <% if item.category_id == test %>
+            <%= render "item", item: item %>
+        <% end %>
+    <% end %>
+
+    </div>

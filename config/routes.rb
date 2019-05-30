@@ -14,8 +14,20 @@ Rails.application.routes.draw do
     end
   resources :charges
 
-   
   end
+
+  get '/admins/index', to: 'admin/admins#index', as: 'admin_index'
+  namespace :admin do
+    resources :users
+    resources :orders
+  end
+
+  get '/admins/users/:id', to: 'admins/users#destroy', as: 'admins_user_destroy'
+
+
+#  devise_for :users, :controllers => {:registrations => "registrations"}
+#  resources :users, only: [:show] do
+#    resources :profil_pictures, only: [:create]
 
 
 end
