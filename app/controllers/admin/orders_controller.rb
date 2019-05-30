@@ -5,14 +5,6 @@ class Admin::OrdersController < ApplicationController
 		@admin = current_user
 		@all_orders = Order.all
 
-		if @all_orders.length > 0
-			array_amount = []
-				@all_orders.each do |order|
-					array_amount << order.amount
-				end
-			@average_amount = array_amount.sum / array_amount.length
-		end
-
 	end
 
 	def show

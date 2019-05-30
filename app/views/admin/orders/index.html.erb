@@ -16,15 +16,9 @@
 		<table id="statistiques">
 			<tr>
 				<th>Nombre total de commandes</th>
-				<th>Prix moyen d'une commande</th>
 			</tr>
 			<tr>
 				<th><%= @all_orders.length%></th>
-				<% if @all_orders.length != 0 %>
-					<th><%= @average_amount.round(2) %> €</th>
-				<% else %>
-					<th>No data</th>
-				<% end %>
 			</tr>
 		</table>
 
