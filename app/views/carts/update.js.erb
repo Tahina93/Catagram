@@ -4,6 +4,15 @@ var content = parseInt(cart.innerText)
 <% if @remove %>
     cart.innerText = --content
     document.getElementById("photo<%= @item.id %>").outerHTML = ""
+    document.getElementById("checkout").innerText = "<%=
+        number_to_currency(
+            @cart_price - @item.price,
+            unit: "€",
+            separator: ",",
+            delimiter: " ",
+            format: "%n %u"
+        )
+    %>"
 <% else %>
     var addButton = document.querySelector("#photo<%= @item.id %> a.btn-success") || document.querySelector("h3 + p + a")
 

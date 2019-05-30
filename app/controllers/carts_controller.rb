@@ -16,6 +16,7 @@ class CartsController < ApplicationController
 
     if params["to_remove"] == "true"
       @remove = true
+      @cart_price = get_cart_price
       current_user.cart.items.delete(@item)
       respond_to do |format|
         format.html { redirect_back(fallback_location: cart_path) }
