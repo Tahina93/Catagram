@@ -7,7 +7,7 @@
 	</div>
 
 	<% if current_user.potential_items.length > 0 %>
-		<div class="d-flex justify-content-center">
+		<div class="d-flex justify-content-center" id="cart">
 			<%= form_tag orders_path, class:"p-4 border border-primary d-flex flex-column" do %>
 			<article class="text-center">
 				<% if flash[:error].present? %>
@@ -18,13 +18,13 @@
 				<label class="amount">
 					<span style="font-size: 25px;">
 						Total :
-						<%= number_to_currency(
+						<span id="checkout"><%= number_to_currency(
 							@cart_price,
 							unit: "€",
 							separator: ",",
 							delimiter: " ",
 							format: "%n %u"
-						) %>
+						) %></span>
 					</span>
 				</label>
 			</article>

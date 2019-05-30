@@ -29,7 +29,7 @@
         <% if current_user.cart.items.include?(@item)%>
           <a class ="card-link btn btn-success" disabled><i class="fas fa-cart-plus"></i> Déjà dans le panier !</a>
         <%else%>
-          <a href="<%= cart_path(@item.title) %>" data-method="put" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a>
+          <a href="<%= cart_path(@item.title) %>" data-method="put" class="card-link btn btn-success" data-remote><i class="fas fa-cart-plus"></i> Ajouter au panier</a>
         <%end%>
       <% else %>
         <a href="<%= new_user_session_path %>" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Ajouter au panier</a>

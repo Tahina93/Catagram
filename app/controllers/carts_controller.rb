@@ -12,14 +12,22 @@ class CartsController < ApplicationController
   end
 
   def update
-    item = get_item(params[:id])
+    @item = get_item(params[:id])
 
     if params["to_remove"] == "true"
-      current_user.cart.items.delete(item)
-      redirect_back(fallback_location: cart_path)
+      @remove = true
+      @cart_price = get_cart_price
+      current_user.cart.items.delete(@item)
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: cart_path) }
+        format.js {}
+      end     
     else
-      current_user.cart.items.append(item)
-      redirect_back(fallback_location: root_path + "#photo" + item.id.to_s)
+      current_user.cart.items.append(@item)
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: root_path + "#photo" + item.id.to_s) }
+        format.js {}
+      end
     end
   end
 

@@ -17,7 +17,7 @@
                         <%= order.created_at.strftime("%d/%m/%Y - %H:%M") %>
                     </div>
                     <div>
-                        <%= number_to_currency(
+                       <%= number_to_currency(
                             order.amount,
                             unit: "€",
                             separator: ",",
@@ -56,3 +56,4 @@
         </div>
     </div>
     <% end %>
+</div>
