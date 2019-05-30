@@ -1,0 +1,42 @@
+<div class = "container d-flex justify-content-center">
+  <div class="col-md-5 mt-5">
+
+    <h1 class="mb-2 text-center">Créer un item</h1>
+
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+      <div class="form-group text-center">
+        <%= label_tag 'Title' %><br/>
+        <%= text_field_tag 'title', '',class: 'form-control'%>
+      </div>
+
+      <div class="form-group text-center">
+        <%= label_tag 'Description' %><br/>
+        <%= text_area_tag 'description', '',class: 'form-control'%>
+        <small>minimum 6 caractères</small>
+      </div>
+
+      <div class="form-group text-center">
+        <%= label_tag 'Price' %><br/>
+        <%= number_field_tag 'price', '',class: 'form-control'%>
+      </div>
+
+      <div class="form-group text-center">
+        <%= label_tag 'Image_url' %><br/>
+        <%= text_field_tag 'image_url', '',class: 'form-control'%>
+      </div>
+
+      <div class="form-group text-center">
+        <%= label_tag 'Category_id' %><br/>
+        <%= number_field_tag 'category_id', '',class: 'form-control'%>
+        <br>
+      </div>
+
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+      </div>
+
+      <% end %>
+
+  </div>
+</div>

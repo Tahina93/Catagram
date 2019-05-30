@@ -1,14 +1,27 @@
 <div class="container">
 
 	<div class=" row d-flex justify-content-center mb-3">
-		<a href="<%= admin_users_path %>" class="btn btn-primary m-3"> Espace Admin - users</a>
-		<a href="<%= admin_orders_path %>" class="btn btn-primary m-3"> Espace Admin - orders</a>
+		<a href="<%= admin_users_path %>" class="btn btn-primary m-3">Espace Users</a>
+		<a href="<%= admin_orders_path %>" class="btn btn-primary m-3">Espace Orders</a>
+		<a href="<%= admin_items_path %>" class="btn btn-primary m-3">Espace Items</a>
 	</div>
 
 	<div class="row">
 
 		<p>Bienvenue dans votre espace administrateur (utilisateur n°<%= @admin.id%>)</p>
 		
+	</div>
+
+		<div class="row mb-5 d-flex justify-content-center">
+		<table id="statistiques">
+			<tr>
+				<th>Nombre total d'utilisateur</th>
+			</tr>
+			<tr>
+				<th><%= @all_users.length%></th>
+			</tr>
+		</table>
+
 	</div>
 	
 <table id="users">

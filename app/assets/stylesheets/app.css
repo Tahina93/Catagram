@@ -199,7 +199,31 @@ ul.navbar-nav
     padding-top: 90px;
 }
 
+#items th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
 
+#items tr:hover {background-color: #ddd;
+    padding-top: 90px;
+}
+
+#statistiques th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#statistiques tr:hover {background-color: #ddd;
+    padding-top: 90px;
+}
 
 /************************************************
 *                                               *

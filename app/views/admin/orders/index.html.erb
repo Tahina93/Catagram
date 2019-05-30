@@ -1,8 +1,9 @@
 <div class="container">
 
 	<div class=" row d-flex justify-content-center mb-3">
-		<a href="<%= admin_users_path %>" class="btn btn-primary m-3"> Espace Admin - users</a>
-		<a href="<%= admin_orders_path %>" class="btn btn-primary m-3"> Espace Admin - orders</a>
+		<a href="<%= admin_users_path %>" class="btn btn-primary m-3">Espace Users</a>
+		<a href="<%= admin_orders_path %>" class="btn btn-primary m-3">Espace Orders</a>
+		<a href="<%= admin_items_path %>" class="btn btn-primary m-3">Espace Items</a>
 	</div>
 
 	<div class="row">
@@ -10,12 +11,31 @@
 		<p>Bienvenue dans votre espace admin pour les commandes (utilisateur n°<%= @admin.id%>)</p>
 		
 	</div>
+
+		<div class="row mb-5 d-flex justify-content-center">
+		<table id="statistiques">
+			<tr>
+				<th>Nombre total de commandes</th>
+				<th>Prix moyen d'une commande</th>
+			</tr>
+			<tr>
+				<th><%= @all_orders.length%></th>
+				<% if @all_orders.length != 0 %>
+					<th><%= @average_amount.round(2) %> €</th>
+				<% else %>
+					<th>No data</th>
+				<% end %>
+			</tr>
+		</table>
+
+	</div>
 	
 	<table id="orders">
 		<tr>
-			<th>Id</th>
+			<th>Order id</th>
 			<th>User id</th>
 			<th>User email</th>
+			<th>Order amount</th>
 			<th>Created at</th>
 		</tr>
 		<% @all_orders.each do |order| %>
@@ -23,6 +43,7 @@
 			<th><%= order.id %></th>
 			<th><%= order.user.id %></th>
 			<th><%= order.user.email %></th>
+			<th><%= order.amount %></th>
 			<th><%= order.created_at %></th>
 			<th class="option_delete"> <%= button_to "Supprimer", admin_order_path(:id => order.id), :method => :delete, class:"btn btn-primary" %></th>
 		</tr>
