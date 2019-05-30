@@ -11,5 +11,5 @@ class Order < ApplicationRecord
 
   def new_order_admin_send
    UserMailer.new_order_admin_email(self).deliver_now
-  end  
+  end
 end

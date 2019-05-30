@@ -22,7 +22,6 @@ class OrdersController < ApplicationController
   })
 
 	order = Order.create(user: current_user),
-	amount = @amount
 	current_user.potential_items.each{|item|
 		order.items.append(item)
 		current_user.cart.items.delete(item)

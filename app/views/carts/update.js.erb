@@ -1,0 +1,6 @@
+var cart = document.querySelector("a[href='/mon-panier'] span.content")
+var content = parseInt(cart.innerText)
+var addButton = document.querySelector("#photo<%= @item.id %> a.btn-success")
+
+cart.innerText = ++content
+addButton.outerHTML = "<a class=\"card-link btn btn-success\" disabled><i class=\"fas fa-cart-plus\"></i> Déjà dans le panier !</a>"
