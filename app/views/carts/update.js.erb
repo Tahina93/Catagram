@@ -1,6 +1,12 @@
 var cart = document.querySelector("a[href='/mon-panier'] span.content")
 var content = parseInt(cart.innerText)
-var addButton = document.querySelector("#photo<%= @item.id %> a.btn-success")
 
-cart.innerText = ++content
-addButton.outerHTML = "<a class=\"card-link btn btn-success\" disabled><i class=\"fas fa-cart-plus\"></i> Déjà dans le panier !</a>"
+<% if @remove %>
+    cart.innerText = --content
+    document.getElementById("photo<%= @item.id %>").outerHTML = ""
+<% else %>
+    var addButton = document.querySelector("#photo<%= @item.id %> a.btn-success") || document.querySelector("h3 + p + a")
+
+    cart.innerText = ++content
+    addButton.outerHTML = "<a class=\"card-link btn btn-success\" disabled><i class=\"fas fa-cart-plus\"></i> Déjà dans le panier !</a>"
+<% end %>

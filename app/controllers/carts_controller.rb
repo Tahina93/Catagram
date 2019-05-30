@@ -15,15 +15,18 @@ class CartsController < ApplicationController
     @item = get_item(params[:id])
 
     if params["to_remove"] == "true"
+      @remove = true
       current_user.cart.items.delete(@item)
-      redirect_back(fallback_location: cart_path)
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: cart_path) }
+        format.js {}
+      end     
     else
       current_user.cart.items.append(@item)
       respond_to do |format|
         format.html { redirect_back(fallback_location: root_path + "#photo" + item.id.to_s) }
         format.js {}
       end
-      
     end
   end
 
