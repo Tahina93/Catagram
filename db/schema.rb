@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 2019_05_29_130237) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "item_cart_links", force: :cascade do |t|
     t.bigint "cart_id"
     t.bigint "item_id"
@@ -68,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_05_29_130237) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -91,4 +99,5 @@ ActiveRecord::Schema.define(version: 2019_05_29_130237) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "categories"
 end
