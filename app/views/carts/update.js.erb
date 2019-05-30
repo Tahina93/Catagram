@@ -2,17 +2,37 @@ var cart = document.querySelector("a[href='/mon-panier'] span.content")
 var content = parseInt(cart.innerText)
 
 <% if @remove %>
+    <% new_amount =  @cart_price - @item.price %>
     cart.innerText = --content
     document.getElementById("photo<%= @item.id %>").outerHTML = ""
-    document.getElementById("checkout").innerText = "<%=
-        number_to_currency(
-            @cart_price - @item.price,
-            unit: "€",
-            separator: ",",
-            delimiter: " ",
-            format: "%n %u"
+    
+    if (content >0) {    
+        document.getElementById("checkout").innerText = "<%=
+            number_to_currency(
+                new_amount,
+                unit: "€",
+                separator: ",",
+                delimiter: " ",
+                format: "%n %u"
+            )
+        %>"
+        document.querySelector(".stripe-button").outerHTML = `<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-label="Payer" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Commandes" data-amount="<%=@cart_price*100%>" data-locale="auto" data-currency="eur"></script>`
+        var handler = StripeCheckout.configure({
+            key:"<%= Rails.configuration.stripe[:publishable_key] %>",
+            label: "Payer",
+            locale: "auto",
+            description: "Commandes",
+            currency: "eur",
+            amount: "<%= new_amount*100 %>",
+            class: "stripe-button"
+        })
+
+        document.querySelector(".stripe-button-el").addEventListener("click", () => 
+            handler.open({})
         )
-    %>"
+    } else {
+        document.getElementById("cart").outerHTML = `<div class="d-flex justify-content-center text-center"><p style="font-size: 30px; margin-top: 10%;">Votre panier est vide</p></div>`
+    }
 <% else %>
     var addButton = document.querySelector("#photo<%= @item.id %> a.btn-success") || document.querySelector("h3 + p + a")
 
