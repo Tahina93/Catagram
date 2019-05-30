@@ -1,5 +1,10 @@
 <div class="container">
 
+	<div class=" row d-flex justify-content-center mb-3">
+		<a href="<%= admin_users_path %>" class="btn btn-primary m-3"> Espace Admin - users</a>
+		<a href="<%= admin_orders_path %>" class="btn btn-primary m-3"> Espace Admin - orders</a>
+	</div>
+
 	<div class="row">
 
 		<p>Bienvenue dans votre espace administrateur (utilisateur n°<%= @admin.id%>)</p>
@@ -20,7 +25,6 @@
 			    <th><%= user.is_admin %></th>
 			    <th><%= user.created_at %></th>
 			    <th class="option_delete"> <%= button_to "Supprimer", admin_user_path(:id => user.id), :method => :delete, class:"btn btn-primary" %></th>
-
 			  </tr>
 		<% end %>
 </table>

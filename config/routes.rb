@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :orders
   resources :charges
 
-
+get '/admins/index', to: 'admin/admins#index', as: 'admin_index'
  namespace :admin do
  	resources :users
+  resources :orders
  end
 
  get '/admins/users/:id', to: 'admins/users#destroy', as: 'admins_user_destroy'

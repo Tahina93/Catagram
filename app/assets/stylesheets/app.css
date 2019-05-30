@@ -186,3 +186,13 @@ ul.navbar-nav
 }
 
 #users tr:hover {background-color: #ddd;}
+
+#orders th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+#orders tr:hover {background-color: #ddd;}
