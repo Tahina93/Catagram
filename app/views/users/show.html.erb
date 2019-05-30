@@ -5,12 +5,12 @@
 
 		<div class="col-md-4">
 			<%if @user.profil_picture.attached?%>
-			<%= image_tag @user.profil_picture, alt: 'profil_picture', style:"width: 100%;" %>
+				<%= image_tag @user.profil_picture, alt: 'profil_picture', style:"width: 100%;" %>
 			<%else%>
-			<%= form_tag user_profil_pictures_path(@user), multipart: true do %>
-			<%= file_field_tag :profil_picture %>
-			<%= submit_tag "mettre à jour" %>
-			<% end %>
+				<%= form_tag user_profil_pictures_path(@user), multipart: true do %>
+					<%= file_field_tag :profil_picture, class: "btn btn-outline-secondary" %>
+					<%= submit_tag "Mettre à jour", class: "btn btn-outline-info" %>
+				<% end %>
 			<%end%>
 		</div>
 
@@ -33,7 +33,7 @@
 			</div>
 			<br/>
 			<div class="row d-flex justify-content-center text-center">
-				<a href="<%=edit_user_registration_path(@user.id)%>" class="form-control btn-primary" style="width: 50%;">Modifier mon profil</a>
+				<a href="<%=edit_user_registration_path%>" class="form-control btn-primary" style="width: 50%;">Modifier mon profil</a>
 			</div>
 
 
@@ -58,8 +58,8 @@
 							Prix&nbsp;: <%= item.price %> €
 						</div>
 						<div class="card-body buttons">
-							<a href="<%= item_path(item.id) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
-							<a href="#" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Acheter à nouveau</a>
+							<a href="<%= item_path(item.title) %>" class="card-link btn btn-info"><i class="fas fa-cat"></i> En savoir plus</a>
+							<a href="<%= cart_path(item.title) %>" data-method="put" class="card-link btn btn-success"><i class="fas fa-cart-plus"></i> Acheter à nouveau</a>
 						</div>
 					</div>
 				</div>
