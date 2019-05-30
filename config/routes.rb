@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :profil_pictures, only: [:create], path: 'avatar'
     end
   resources :charges
+  get '/mentions-legales', :to => 'static#mentions'
 
   end
 
