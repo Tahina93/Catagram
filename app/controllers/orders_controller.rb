@@ -2,13 +2,12 @@ class OrdersController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-
 	end
 
 	def create
 
   # Amount in cents
-  @amount = get_cart_price * 100
+	@amount = get_price
 
   customer = Stripe::Customer.create({
   	email: params[:stripeEmail],
@@ -22,7 +21,8 @@ class OrdersController < ApplicationController
   	currency: 'eur',
   })
 
-	order = Order.create(user: current_user)
+	order = Order.create(user: current_user),
+	amount = @amount
 	current_user.potential_items.each{|item|
 		order.items.append(item)
 		current_user.cart.items.delete(item)
@@ -36,4 +36,9 @@ class OrdersController < ApplicationController
 	redirect_to new_charge_path
 end
 
+private
+
+def get_price
+	get_cart_price * 100
+end
 end

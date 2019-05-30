@@ -195,7 +195,20 @@ ul.navbar-nav
   text-align: left;
 }
 
-#orders tr:hover {background-color: #ddd;}
-=======
+#orders tr:hover {background-color: #ddd;
     padding-top: 90px;
 }
+
+
+
+/************************************************
+*                                               *
+*                 Index Cards                   *
+*                                               *
+************************************************/
+
+#orders, #accordion, #accordion .card, .btn-outline-dark.text-white, .order-item
+{
+    width: 100%;
+}
+
