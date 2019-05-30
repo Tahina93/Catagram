@@ -176,3 +176,15 @@ ul.navbar-nav
 {
     padding-top: 90px;
 }
+
+
+/************************************************
+*                                               *
+*                 Index Cards                   *
+*                                               *
+************************************************/
+
+#orders, #accordion, #accordion .card, .btn-outline-dark.text-white, .order-item
+{
+    width: 100%;
+}
