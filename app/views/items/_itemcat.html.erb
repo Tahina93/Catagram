@@ -1,19 +1,12 @@
     <div id="item_list" class="row">
 
-alert(<%= category %>)
+    <% test = Category.all.sample.id %>    
+
     <% @items.each do |item|%>
 
-        <% if item.category_id == category %>
+        <% if item.category_id == test %>
             <%= render "item", item: item %>
         <% end %>
     <% end %>
 
-
-    <% @categories.each do |category|%>
-        <% category.items.each do |item| %>
-
-        <%= item.title %>
-        <% end %>
-        
-    <% end %>
     </div>
