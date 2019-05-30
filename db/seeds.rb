@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-admin = User.where(email: "catagram@yopmail.com")[0]
-admin.destroy()
 
 
 User.create!(
