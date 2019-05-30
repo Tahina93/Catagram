@@ -24,7 +24,11 @@
             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></button>
 
             <div class="dropdown-menu bg-primary" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+              
               <a class="dropdown-item" href="/mon-profil">Mon profil</a>
+              <% if current_user.is_admin == true %>
+                <a class="dropdown-item" href="<%= admin_index_path%>">Mon espace Administateur</a>
+              <% end%>
               <a class="dropdown-item" href="<%=destroy_user_session_path %>" data-method= "delete">Déconnexion</a>
             </div>
           </div>

@@ -174,8 +174,31 @@ ul.navbar-nav
 
 #catalogue
 {
+    padding-top: 12vh;
+}
+
+#users th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+#users tr:hover {background-color: #ddd;}
+
+#orders th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+#orders tr:hover {background-color: #ddd;
     padding-top: 90px;
 }
+
 
 
 /************************************************
@@ -188,3 +211,4 @@ ul.navbar-nav
 {
     width: 100%;
 }
+

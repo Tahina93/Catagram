@@ -8,6 +8,8 @@
   <div class="row d-flex justify-content-center">
     <div class="col-md-6 d-flex flex-column align-items-center">
       <h2><%= @item.title%></h2>
+                  Catégorie&nbsp;: <%= @item.category.title %>
+
       <p class="mt-2"><%=@item.description%></p>
       <p><a href="<%= root_path %>#photo<%= @item.id %>" class="btn btn-primary"><i class="fas fa-cat"></i>Retour au catalogue</a></p>
     </div>
