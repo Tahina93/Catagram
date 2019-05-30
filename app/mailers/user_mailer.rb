@@ -30,7 +30,7 @@ class UserMailer < ApplicationMailer
     @cart = @current_user.cart
 
 
-    mail(to: ENV['MAIL_JET_DEFAULT_FROM'], subject: 'Nouvelle commande !')
+    mail(to: 'catagram@yopmail.com', subject: 'Nouvelle commande !')
   end
 
 end
