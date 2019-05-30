@@ -20,17 +20,17 @@ class UserMailer < ApplicationMailer
     @current_user = @order.user
     @cart = @current_user.cart
 
-    puts "*******************************************"
-    puts "*******************************************"
-    puts "*******************************************"
-    puts @order
-    puts @current_user.email
-    puts @cart.items
-    puts "*******************************************"
-    puts "*******************************************"
-    puts "*******************************************"
-
 
     mail(to: @current_user.email, subject: 'Confirmation de commande mignonne !')
   end
+
+  def new_order_admin_email(order)
+    @order = order
+    @current_user = @order.user
+    @cart = @current_user.cart
+
+
+    mail(to: ENV['MAIL_JET_DEFAULT_FROM'], subject: 'Nouvelle commande !')
+  end
+
 end
