@@ -20,12 +20,14 @@
 				</label>
 			</article>
 
-			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-			data-description="A month's subscription"
-			data-amount="<%=@cart_price * 100%>"
-			data-locale="auto"
-			data-currency="eur">
+			<script src="https://checkout.stripe.com/checkout.js"
+				class="stripe-button"
+				data-label="Payer"
+				data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+				data-description="Commandes"
+				data-amount="<%=@cart_price * 100%>"
+				data-locale="auto"
+				data-currency="eur">
 			</script>
 			<%end%>
 		</div>
